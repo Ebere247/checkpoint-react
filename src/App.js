@@ -1,24 +1,31 @@
-import logo from './logo.svg';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import Description from './components/Description';
+import Name from './components/Name';
+import Image from './components/Image';
+import Price from './components/Price';
+import { Product } from './Database/Product';
+import Cards from './components/Cards';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   <>
+   <Description />
+   <Image />
+   <Price />
+   <Name />
+
+   {
+    Product.map(sp => <Cards productData = {sp} key={sp.productName}  /> )
+   }
+  
+{/* {
+  Product.map(function (sp){
+    return <Cards key={sp.productName} />
+  }) 
+} */}
+
+   </>
   );
 }
 
